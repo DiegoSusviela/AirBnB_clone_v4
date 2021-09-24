@@ -10,8 +10,8 @@ $(document).ready(function() {
           alert('no esta clickeado');
           delete obj[$(this).data('name')];
         }
+        const names = Object.values(obj);
+        alert(names);
+        $('.amenities h4').text(names.sort().join(', '));
       });
-      const names = Object.values(obj);
-      alert(names);
-      $('.amenities h4').text(names.sort().join(', '));
   });
