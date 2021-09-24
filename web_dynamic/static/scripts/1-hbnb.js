@@ -1,14 +1,12 @@
+
 $(document).ready(function() {
     const obj = {};
-    alert('entro');
-    $('.check').click(function() {
-        alert('prende');
+    $('.amenities .popover input').click(function() {
+        alert('clickeo');
         $('#checkId').prop('checked', true);
-
         obj[$(this).attr('data-name')] = $(this).attr('data-id');
       });
     $('.uncheck').click(function() {
-        alert('apaga');
         $('#checkId').prop('checked', false);
         delete obj[$(this).attr('data-name')];
       });
