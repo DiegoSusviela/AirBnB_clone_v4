@@ -3,15 +3,15 @@ $(document).ready(function() {
     const obj = {};
     $('.amenities .popover input').click(function() {
         if (this.checked) {
-          delete obj[$(this).attr('data-name')];
-          alert($(this).attr('data-name'));
+          obj[$(this).data('name')] = $(this).data('id');
+          alert($(this).data('name'));
           alert($(this).attr('data-id'));
-        } else { 
+        } else {
           alert('no esta clickeado');
-
-          obj[$(this).attr('data-name')] = $(this).attr('data-id');
+          delete obj[$(this).data('name')];
         }
       });
-      const names = Object.keys(obj);
+      const names = Object.values(obj);
+      alert(names);
       $('.amenities h4').text(names.sort().join(', '));
   });
