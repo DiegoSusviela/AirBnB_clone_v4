@@ -52,7 +52,7 @@ button:hover {
 }
 
 .amenities h4{
-    overflow: hidden;
+    overflow: auto;
 }
 
 .popover {
