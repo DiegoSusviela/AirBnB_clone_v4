@@ -10,6 +10,6 @@ $(document).ready(function() {
           delete obj[$(this).attr('data-name')];
         }
       });
-      const names = Object.keys(obj);
+      const names = Object.values(obj);
       $('.amenities h4').text(names.sort().join(', '));
   });
