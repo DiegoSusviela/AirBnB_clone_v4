@@ -3,12 +3,13 @@ $(document).ready(function() {
     const obj = {};
     $('.amenities .popover input').click(function() {
         if (this.checked) {
-          obj[$(this).attr('data-name')] = $(this).attr('data-id');
+          delete obj[$(this).attr('data-name')];
           alert($(this).attr('data-name'));
           alert($(this).attr('data-id'));
         } else { 
           alert('no esta clickeado');
-          delete obj[$(this).attr('data-name')];
+
+          obj[$(this).attr('data-name')] = $(this).attr('data-id');
         }
       });
       const names = Object.keys(obj);
