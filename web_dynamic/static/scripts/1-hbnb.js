@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('.amenities .popover input').click(function() {
         if (this.checked) {
           obj[$(this).attr('data-name')] = $(this).attr('data-id');
-          alert($(this.names).attr('data-name'));
+          alert($(this).attr('data-name'));
           alert($(this).attr('data-id'));
         } else { 
           alert('no esta clickeado');
