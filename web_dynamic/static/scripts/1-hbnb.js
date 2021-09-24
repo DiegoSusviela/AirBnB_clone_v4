@@ -3,7 +3,7 @@ $(document).ready(function() {
     const obj = {};
     $('.amenities .popover input').click(function() {
         if (this.checked) {
-          obj[$(this).data('id')] = $(this).data('names');
+          obj[$(this).data('id')] = $(this).data('name');
           alert($(this).data('name'));
           alert($(this).attr('data-id'));
         } else {
