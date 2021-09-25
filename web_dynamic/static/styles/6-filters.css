@@ -40,10 +40,8 @@ button:hover {
     margin-top: 0;
     font-weight: 400;
     font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
+
 .locations {
     height: 100%;
     width: 25%;
@@ -52,12 +50,6 @@ button:hover {
 .amenities {
     height: 100%;
     width: 25%;
-}
-
-.amenities h4 {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 .popover {
