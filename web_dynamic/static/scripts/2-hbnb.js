@@ -1,9 +1,11 @@
 $(document).ready(function() {
-  $.getJSON('http://0.0.0.0:5001/api/v1/status/', data => {
-    if (data.status === 'OK') {
-      $('#api_status').addClass('available');
-    } else {
-      $('#api_status').removeClass('available');
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (data, status) {
+    if (status === 'success') {
+      if (data.status === 'OK') {
+        $('DIV#api_status').addClass('available');
+      } else {
+        $('DIV#api_status').removeClass('available');
+      }
     }
   })
 });
