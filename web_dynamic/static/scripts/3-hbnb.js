@@ -24,15 +24,15 @@ $(document).ready(function() {
       });
   });
 
+const $places = $('.places');
 $.ajax({
-  type: POST,
+  type: 'POST',
   url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
   contentType: 'application/json',
   data: '{}',
   success: function (data) {
     $.each(data, function (i, place) {
-      console.log(i);
-      $('section.places').append('<article>MAMA</article>');
+      $places.append('<article><div class="title_box"><h2>'+ place.name +'</h2><div class="price_by_night">$'+ place.price_by_night +'</div></div></article>');
     });
   }
 });
