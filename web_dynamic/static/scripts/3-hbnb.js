@@ -24,7 +24,6 @@ $(document).ready(function() {
       });
   });
 
-const $places = $('.places');
 $.ajax({
   type: POST,
   url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
@@ -32,7 +31,8 @@ $.ajax({
   data: '{}',
   success: function (data) {
     $.each(data, function (i, place) {
-      $places.append('<article>MAMA</article>');
+      console.log(i);
+      $('section.places').append('<article>MAMA</article>');
     });
   }
 });
