@@ -45,6 +45,9 @@ button:hover {
     overflow: hidden;
 }
 
+.filters input {
+    padding-right: 10px;
+}
 .locations {
     height: 100%;
     width: 25%;
