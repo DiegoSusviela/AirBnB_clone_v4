@@ -10,15 +10,44 @@ $(document).ready(function () {
     }
   });
 
-  const obj = {};
+  const amenities = {};
   $('.amenities .popover input').click(function () {
     if (this.checked) {
-      obj[$(this).data('id')] = $(this).data('name');
+      amenities[$(this).data('id')] = $(this).data('name');
     } else {
-      delete obj[$(this).data('id')];
+      delete amenities[$(this).data('id')];
     }
-    const names = Object.values(obj);
-    $('.amenities h4').text(names.sort().join(', '));
+    const names = Object.values(amenities);
+    if (names) {
+      $('.amenities h4').text(names.sort().join(', '));
+    }
+  });
+
+  const states = {};
+  $('.locations .popover ul li h2 input').click(function () {
+    if (this.checked) {
+      alert($(this).data('id'));
+      states[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete states[$(this).data('id')];
+    }
+    const names = Object.values(states);
+    if (names) {
+      $('.locations h4').text(names.sort().join(', '));
+    }
+  });
+
+  const cities = {};
+  $('.locations .popover ul li ul li input').click(function () {
+    if (this.checked) {
+      cities[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete cities[$(this).data('id')];
+    }
+    const names = Object.values(cities);
+    if (names) {
+      $('.locations h4').text(names.sort().join(', '));
+    }
   });
 
   const obj1 = {};
@@ -63,7 +92,7 @@ $(document).ready(function () {
         url: 'http://' + hostname + ':5001/api/v1/places_search/',
         contentType: 'application/json',
         dataType: 'JSON',
-        data: JSON.stringify({ amenities: Object.keys(obj) }),
+        data: JSON.stringify({ amenities: Object.keys(amenities) }),
         success: function (data) {
           $('section.places').empty();
           for (const place of data) {
