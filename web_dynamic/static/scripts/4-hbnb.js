@@ -35,3 +35,23 @@ $.ajax({
     });
   }
 });
+
+
+$('.filters button').click(function (event) {
+    $.ajax({
+	  type: 'POST',
+      url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
+      contentType: 'application/json',
+      dataType: 'JSON',
+      data: JSON.stringify({ amenities: Object.keys(amenityIds) }),
+      success: function (data) {
+        let ret = [];
+		$.each(data, function (i, place) {
+			ret.push(createHTML(data[i]));
+        });
+        ret = ret.join('');
+        $('section.places > article').remove();
+        $('section.places').append(ret);
+      }
+    });
+});
