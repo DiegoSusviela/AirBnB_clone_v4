@@ -24,7 +24,7 @@ $(document).ready(function () {
   });
 
   const states = {};
-  const allNames = [];
+  const snames = "";
   $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
       states[$(this).data('id')] = $(this).data('name');
@@ -32,8 +32,7 @@ $(document).ready(function () {
       delete states[$(this).data('id')];
     }
     const state_names = Object.values(states);
-    allNames.concat(state_names);
-    $('.locations h4').text(allNames.sort().join(', '));
+    $('.locations h4').text(state_names.sort().join(', '));
   });
 
   const cities = {};
@@ -45,7 +44,7 @@ $(document).ready(function () {
     }
     const city_names = Object.values(cities);
     allNames.concat(city_names);
-    $('.locations h4').text(allNames.sort().join(', '));
+    $('.locations h4').text(city_names.sort().join(', '));
   });
 
   
