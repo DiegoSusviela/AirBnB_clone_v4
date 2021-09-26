@@ -43,7 +43,6 @@ $(document).ready(function () {
       delete cities[$(this).data('id')];
     }
     const city_names = Object.values(cities);
-    allNames.concat(city_names);
     $('.locations h4').text(city_names.sort().join(', '));
   });
 
