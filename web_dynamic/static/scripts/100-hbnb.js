@@ -32,7 +32,7 @@ $(document).ready(function () {
       delete states[$(this).data('id')];
     }
     const state_names = Object.values(states);
-    allNames.append(state_names);
+    allNames.concat(state_names);
   });
 
   const cities = {};
@@ -43,7 +43,7 @@ $(document).ready(function () {
       delete cities[$(this).data('id')];
     }
     const city_names = Object.values(cities);
-    allNames.append(city_names);
+    allNames.concat(city_names);
   });
 
   $('.locations h4').text(allNames.sort().join(', '));
