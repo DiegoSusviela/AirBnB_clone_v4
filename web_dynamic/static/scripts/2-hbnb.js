@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  const hostname = location.hostname;
+  const hostname = window.location.hostname
   $.get('http://' + hostname + ':5001/api/v1/status/', function (data, status) {
     if (status === 'success') {
       if (data.status === 'OK') {
