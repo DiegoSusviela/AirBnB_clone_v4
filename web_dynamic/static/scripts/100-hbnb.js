@@ -32,7 +32,9 @@ $(document).ready(function () {
       delete states[$(this).data('id')];
     }
     const state_names = Object.values(states);
-    $('.locations h4').text(state_names.sort().join(', '));
+    if (state_names) {
+      $('.locations h4').text(state_names.sort().join(', '));
+    }
   });
 
   const cities = {};
