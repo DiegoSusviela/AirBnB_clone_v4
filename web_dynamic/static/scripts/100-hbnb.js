@@ -24,7 +24,7 @@ $(document).ready(function () {
   });
 
   const states = {};
-  $('.locations .popover h2 input').click(function () {
+  $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
       states[$(this).data('id')] = $(this).data('name');
     } else {
@@ -37,7 +37,7 @@ $(document).ready(function () {
   });
 
   const cities = {};
-  $('.locations .popover h2 input').click(function () {
+  $('.locations .popover ul li ul li input').click(function () {
     if (this.checked) {
       cities[$(this).data('id')] = $(this).data('name');
     } else {
