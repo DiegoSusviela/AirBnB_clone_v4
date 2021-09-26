@@ -21,7 +21,6 @@ def close_db(error):
 def hbnb():
     """ HBNB is alive! """
     states = storage.all(State).values()
-    states = sorted(states, key=lambda k: k.name)
 
     amenities = storage.all(Amenity).values()
     amenities = sorted(amenities, key=lambda k: k.name)
