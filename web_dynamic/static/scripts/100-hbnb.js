@@ -26,14 +26,13 @@ $(document).ready(function () {
   const states = {};
   $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
-      alert($(this).data('name'));
       states[$(this).data('id')] = $(this).data('name');
     } else {
       delete states[$(this).data('id')];
     }
     const names = Object.values(states);
     if (names) {
-      $('.locations h4').text(names.sort().join(', '));
+      $('.locations h4').append(names.sort().join(', '));
     }
   });
 
@@ -46,7 +45,7 @@ $(document).ready(function () {
     }
     const names = Object.values(cities);
     if (names) {
-      $('.locations h4').text(names.sort().join(', '));
+      $('.locations h4').append(names.sort().join(', '));
     }
   });
 
