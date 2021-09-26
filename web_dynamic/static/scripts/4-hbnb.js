@@ -45,7 +45,7 @@ $(function () {
     url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
     contentType: 'application/json',
     dataType: 'JSON',
-    data: JSON.stringify({ amenities: Object.keys(amenities) }),
+    data: JSON.stringify({ amenities: Object.keys(obj) }),
     success: function (data) {
       $('section.places > article').remove();
       let ret = [];
