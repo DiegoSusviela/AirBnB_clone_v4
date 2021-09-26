@@ -20,7 +20,7 @@ $(document).ready(function () {
     const names = Object.values(obj);
     $('.amenities h4').text(names.sort().join(', '));
   });
-  
+
   $.ajax({
     type: 'POST',
     url: 'http://' + hostname + ':5001/api/v1/places_search/',
