@@ -37,7 +37,7 @@ $(document).ready(function () {
     $('button').click(function (event) {
       $.ajax({
         type: 'POST',
-        url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
+        url: 'http://' + hostname + ':5001/api/v1/places_search/',
         contentType: 'application/json',
         dataType: 'JSON',
         data: JSON.stringify({ amenities: Object.keys(obj) }),
