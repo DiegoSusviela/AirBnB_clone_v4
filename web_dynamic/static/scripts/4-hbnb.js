@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  const obj = {};
   $.get('http://' + location.hostname + ':5001/api/v1/status/', function (data, status) {
     if (status === 'success') {
       if (data.status === 'OK') {
@@ -9,7 +10,6 @@ $(document).ready(function() {
     }
   })
   $(document).ready(function() {
-    const obj = {};
     $('.amenities .popover input').click(function() {
         if (this.checked) {
           obj[$(this).data('id')] = $(this).data('name');
