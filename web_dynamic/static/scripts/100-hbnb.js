@@ -21,6 +21,29 @@ $(document).ready(function () {
     $('.amenities h4').text(names.sort().join(', '));
   });
 
+  const obj1 = {};
+  $('.cities .popover input').click(function () {
+    if (this.checked) {
+		obj1[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete obj1[$(this).data('id')];
+    }
+    const namess = Object.values(obj1);
+    $('.cities h4').text(namess.sort().join(', '));
+  });
+
+  const obj2 = {};
+  $('.states .popover input').click(function () {
+    if (this.checked) {
+		obj2[$(this).data('id')] = $(this).data('name');
+    } else {
+      delete obj2[$(this).data('id')];
+    }
+    const name = Object.values(obj2);
+    $('.states h4').text(name.sort().join(', '));
+  });
+
+
   $.ajax({
     type: 'POST',
     url: 'http://' + hostname + ':5001/api/v1/places_search/',
