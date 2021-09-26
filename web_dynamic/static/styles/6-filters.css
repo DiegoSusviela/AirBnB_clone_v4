@@ -46,7 +46,7 @@ button:hover {
 }
 
 .filters input {
-    padding-right: 10px;
+    margin-right: 10px;
 }
 .locations {
     height: 100%;
