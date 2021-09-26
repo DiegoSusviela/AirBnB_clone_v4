@@ -38,20 +38,21 @@ $.ajax({
 
 
 $('.filters button').click(function (event) {
+    console.log('botton pressed');
     $.ajax({
 	  type: 'POST',
-      url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
-      contentType: 'application/json',
-      dataType: 'JSON',
-      data: JSON.stringify({ amenities: Object.keys(obj) }),
-      success: function (data) {
-        $('section.places > article').remove();
-        let ret = [];
-		    $.each(data, function (i, place) {
-          ret.push(createHTML(data[i]));
-        });
-        ret = ret.join('');
-        $('section.places').append(ret);
+    url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
+    contentType: 'application/json',
+    dataType: 'JSON',
+    data: JSON.stringify({ amenities: Object.keys(obj) }),
+    success: function (data) {
+      $('section.places > article').remove();
+      let ret = [];
+      $.each(data, function (i, place) {
+        ret.push(createHTML(data[i]));
+      });
+      ret = ret.join('');
+      $('section.places').append(ret);
       }
     });
 });
