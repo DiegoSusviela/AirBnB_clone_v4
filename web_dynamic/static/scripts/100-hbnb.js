@@ -24,16 +24,15 @@ $(document).ready(function () {
   });
 
   const states = {};
+  const names = [];
   $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
       states[$(this).data('id')] = $(this).data('name');
     } else {
       delete states[$(this).data('id')];
     }
-    const names = Object.values(states);
-    if (names) {
-      $('.locations h4').append(names.sort().join(', '));
-    }
+    const state_names = Object.values(states);
+    names.append(state_names);
   });
 
   const cities = {};
@@ -43,12 +42,12 @@ $(document).ready(function () {
     } else {
       delete cities[$(this).data('id')];
     }
-    const names = Object.values(cities);
-    if (names) {
-      $('.locations h4').append(names.sort().join(', '));
-    }
+    const city_names = Object.values(cities);
+    names.append(city_names);
   });
 
+  $('.locations h4').append(names.sort().join(', '));
+  
   $.ajax({
     type: 'POST',
     url: 'http://' + hostname + ':5001/api/v1/places_search/',
