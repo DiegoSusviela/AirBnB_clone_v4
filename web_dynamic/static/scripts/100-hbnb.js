@@ -18,9 +18,7 @@ $(document).ready(function () {
       delete amenities[$(this).data('id')];
     }
     const names = Object.values(amenities);
-    if (names.length() === 0) {
-      $('.amenities h4').html('&nbsp;');      
-    } else {
+    if (names) {
       $('.amenities h4').text(names.sort().join(', '));
     }
   });
