@@ -24,9 +24,10 @@ $(document).ready(function () {
   });
 
   const states = {};
-  $('.locations .popover ul li input').click(function () {
+  $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
       states[$(this).data('id')] = $(this).data('name');
+      alert($(this).data('name'));
     } else {
       delete states[$(this).data('id')];
     }
