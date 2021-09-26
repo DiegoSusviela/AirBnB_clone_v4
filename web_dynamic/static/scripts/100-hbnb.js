@@ -32,7 +32,7 @@ $(document).ready(function () {
       delete states[$(this).data('id')];
     }
     const state_names = Object.values(states);
-    allNames.push(state_names);
+    allNames.append(state_names);
   });
 
   const cities = {};
@@ -43,10 +43,10 @@ $(document).ready(function () {
       delete cities[$(this).data('id')];
     }
     const city_names = Object.values(cities);
-    allNames.push(city_names);
+    allNames.append(city_names);
   });
 
-  $('.locations h4').append(allNames.sort().join(', '));
+  $('.locations h4').text(allNames.sort().join(', '));
   
   $.ajax({
     type: 'POST',
