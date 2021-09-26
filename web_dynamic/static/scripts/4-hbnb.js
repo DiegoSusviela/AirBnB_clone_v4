@@ -37,7 +37,7 @@ $.ajax({
 });
 
 
-$('.button').click(function (event) {
+$('.filters > button').click(function (event) {
     alert('botton pressed');
     $.ajax({
 	  type: 'POST',
