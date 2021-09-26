@@ -37,7 +37,8 @@ $.ajax({
 });
 
 
-$('button').click(function (event) {
+$(function () {
+  $('button').click(function (event) {
     alert('botton pressed');
     $.ajax({
 	  type: 'POST',
@@ -55,4 +56,5 @@ $('button').click(function (event) {
       $('section.places').append(ret);
       }
     });
+  });
 });
