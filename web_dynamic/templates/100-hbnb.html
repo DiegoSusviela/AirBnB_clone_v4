@@ -28,7 +28,7 @@
 		<li>
 		<h2><input type="checkbox" data-id="{{ state.id }}" data-name="{{ state.name }}">{{ state.name }}:</h2>
 		<ul>
-		  {% for city in state %}
+		  {% for city in state.cities %}
 		  <li><input type="checkbox" data-id="{{ city.id }}" data-name="{{ city.name }}">{{ city.name }}</li>
 		  {% endfor %}
 		</ul>
