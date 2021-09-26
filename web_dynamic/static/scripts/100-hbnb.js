@@ -33,6 +33,7 @@ $(document).ready(function () {
     }
     const state_names = Object.values(states);
     allNames.concat(state_names);
+    $('.locations h4').text(allNames.sort().join(', '));
   });
 
   const cities = {};
@@ -44,9 +45,9 @@ $(document).ready(function () {
     }
     const city_names = Object.values(cities);
     allNames.concat(city_names);
+    $('.locations h4').text(allNames.sort().join(', '));
   });
 
-  $('.locations h4').text(allNames.sort().join(', '));
   
   $.ajax({
     type: 'POST',
