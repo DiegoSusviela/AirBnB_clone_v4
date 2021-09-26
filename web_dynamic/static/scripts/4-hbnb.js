@@ -38,7 +38,7 @@ $.ajax({
 
 
 $('.button').click(function (event) {
-    console.log('botton pressed');
+    alert('botton pressed');
     $.ajax({
 	  type: 'POST',
     url: 'http://' + location.hostname + ':5001/api/v1/places_search/',
