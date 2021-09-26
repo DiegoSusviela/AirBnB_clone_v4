@@ -69,6 +69,7 @@ button:hover {
     overflow-y: scroll;
     scrollbar-width: none;
     max-height: 300px;
+    margin-left: auto;
 }
 
 .popover::-webkit-scrollbar{
