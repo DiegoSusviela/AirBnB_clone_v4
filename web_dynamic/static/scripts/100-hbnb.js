@@ -73,6 +73,7 @@ $(document).ready(function () {
         dataType: 'JSON',
         data: JSON.stringify({ amenities: Object.keys(statesCities) }),
         success: function (data) {
+          alert(statesCities);
           $('section.places').empty();
           alert(data);
           for (const place of data) {
