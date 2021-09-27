@@ -30,11 +30,15 @@ $(document).ready(function () {
   });
 
   const statesCities = {};
+  const states = {};
+  const cities = {};
   $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
       statesCities[$(this).data('id')] = $(this).data('name');
+      states[$(this).data('id')] = $(this).data('name');
     } else {
       delete statesCities[$(this).data('id')];
+      delete states[$(this).data('id')];
     }
     const state_names = Object.values(statesCities);
     if (state_names) {
@@ -45,8 +49,10 @@ $(document).ready(function () {
   $('.locations .popover ul li ul li input').click(function () {
     if (this.checked) {
       statesCities[$(this).data('id')] = $(this).data('name');
+      cities[$(this).data('id')] = $(this).data('name');
     } else {
       delete statesCities[$(this).data('id')];
+      delete cities[$(this).data('id')];
     }
     const city_names = Object.values(statesCities);
     $('.locations h4').text(city_names.sort().join(', '));
@@ -71,7 +77,7 @@ $(document).ready(function () {
         url: 'http://' + hostname + ':5001/api/v1/places_search/',
         contentType: 'application/json',
         dataType: 'JSON',
-        data: JSON.stringify({ states: Object.keys(statesCities) }),
+        data: JSON.stringify({ states: Object.keys(states), amenities: Object.keys(amenities), cities: Object.keys(cities)}),
         success: function (data) {
           alert(String(statesCities));
           $('section.places').empty();
