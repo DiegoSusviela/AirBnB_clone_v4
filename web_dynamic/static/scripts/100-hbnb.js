@@ -1,3 +1,9 @@
+
+
+
+
+/* ============================================================================================== */
+
 $(document).ready(function () {
   const hostname = window.location.hostname;
   $.get('http://' + hostname + ':5001/api/v1/status/', function (data, status) {
@@ -24,7 +30,6 @@ $(document).ready(function () {
   });
 
   const states = {};
-  const s_names = "";
   $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
       states[$(this).data('id')] = $(this).data('name');
@@ -32,11 +37,12 @@ $(document).ready(function () {
       delete states[$(this).data('id')];
     }
     const state_names = Object.values(states);
-	s_names = state_names.join(', ');
+    if (state_names) {
+      $('.locations h4').text(state_names.sort().join(', '));
+    }
   });
 
   const cities = {};
-  const c_names = "";
   $('.locations .popover ul li ul li input').click(function () {
     if (this.checked) {
       cities[$(this).data('id')] = $(this).data('name');
@@ -44,11 +50,10 @@ $(document).ready(function () {
       delete cities[$(this).data('id')];
     }
     const city_names = Object.values(cities);
-    c_names = city_names.join(', ');
+    $('.locations h4').text(city_names.sort().join(', '));
   });
 
-  $('.locations h4').text(s_names + ', ' + c_names);
-
+  
   $.ajax({
     type: 'POST',
     url: 'http://' + hostname + ':5001/api/v1/places_search/',
