@@ -29,31 +29,29 @@ $(document).ready(function () {
     }
   });
 
-  const states = {};
+  const statesCities = {};
   $('.locations .popover ul li h2 input').click(function () {
     if (this.checked) {
-      states[$(this).data('id')] = $(this).data('name');
+      statesCities[$(this).data('id')] = $(this).data('name');
     } else {
-      delete states[$(this).data('id')];
+      delete statesCities[$(this).data('id')];
     }
-    const state_names = Object.values(states);
+    const state_names = Object.values(statesCities);
     if (state_names) {
       $('.locations h4').text(state_names.sort().join(', '));
     }
   });
 
-  const cities = {};
   $('.locations .popover ul li ul li input').click(function () {
     if (this.checked) {
-      cities[$(this).data('id')] = $(this).data('name');
+      statesCities[$(this).data('id')] = $(this).data('name');
     } else {
-      delete cities[$(this).data('id')];
+      delete statesCities[$(this).data('id')];
     }
-    const city_names = Object.values(cities);
+    const city_names = Object.values(statesCities);
     $('.locations h4').text(city_names.sort().join(', '));
   });
 
-  
   $.ajax({
     type: 'POST',
     url: 'http://' + hostname + ':5001/api/v1/places_search/',
