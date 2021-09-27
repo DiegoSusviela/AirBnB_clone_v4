@@ -32,12 +32,10 @@ $(document).ready(function () {
       delete states[$(this).data('id')];
     }
     const state_names = Object.values(states);
-    if (state_names) {
-      $('.locations h4').text(state_names.sort().join(', '));
-    }
   });
 
   const cities = {};
+  const c_names = [];
   $('.locations .popover ul li ul li input').click(function () {
     if (this.checked) {
       cities[$(this).data('id')] = $(this).data('name');
@@ -45,9 +43,9 @@ $(document).ready(function () {
       delete cities[$(this).data('id')];
     }
     const city_names = Object.values(cities);
-    $('.locations h4').text(city_names.sort().join(', '));
+    c_names = city_names.join(', ');
   });
-
+  $('.locations h4').text(s_names.sort().join(', ') + c_names.sort().join(', '));
   
   $.ajax({
     type: 'POST',
