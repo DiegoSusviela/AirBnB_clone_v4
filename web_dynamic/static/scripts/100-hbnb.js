@@ -71,7 +71,7 @@ $(document).ready(function () {
         url: 'http://' + hostname + ':5001/api/v1/places_search/',
         contentType: 'application/json',
         dataType: 'JSON',
-        data: JSON.stringify({ amenities: Object.keys(statesCities) }),
+        data: JSON.stringify({ states: Object.keys(statesCities) }),
         success: function (data) {
           alert(String(statesCities));
           $('section.places').empty();
