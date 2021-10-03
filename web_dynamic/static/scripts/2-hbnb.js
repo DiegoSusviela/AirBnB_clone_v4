@@ -20,10 +20,6 @@ $(document).ready(function () {
       delete obj[$(this).data('id')];
     }
     const names = Object.values(obj);
-    if (names.length() === 0) {
-      $('.amenities h4').html('&nbsp;');      
-    } else {
       $('.amenities h4').text(names.sort().join(', '));
-    }
   });
 });
